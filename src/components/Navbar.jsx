@@ -52,17 +52,17 @@ export default function Navbar() {
 
             <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
 
-                <a href="https://prebuiltui.com?utm_source=eliana">
+                <a href="#top">
                     <img src="/assets/logo.png" alt="Logo" className="w-28 cursor-pointer mr-14 dark:hidden" />
                     <img src="/assets/logo_dark.png" alt="Logo" className="w-28 cursor-pointer mr-14 hidden dark:block" />
                 </a>
 
                 <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#top">Home</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#about">About me</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#services">Services</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#work">My Work</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#contact">Contact me</a></li>
+                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#about">Sobre mí</a></li>
+                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#services">Servicios</a></li>
+                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#work">Mi trabajo</a></li>
+                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#contact">Contacto</a></li>
                 </ul>
 
                 <div className="flex items-center gap-4">
@@ -72,7 +72,7 @@ export default function Navbar() {
                     </button>
 
                     <a href="#contact" className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
-                        Contact
+                        Contacto
                         <img src="/assets/arrow-icon.png" alt="" className="w-3 dark:hidden" />
                         <img src="/assets/arrow-icon-dark.png" alt="" className="w-3 hidden dark:block" />
                     </a>
@@ -92,10 +92,10 @@ export default function Navbar() {
                     </div>
 
                     <li><a href="#top" onClick={closeMenu}>Home</a></li>
-                    <li><a href="#about" onClick={closeMenu}>About me</a></li>
-                    <li><a href="#services" onClick={closeMenu}>Services</a></li>
-                    <li><a href="#work" onClick={closeMenu}>My Work</a></li>
-                    <li><a href="#contact" onClick={closeMenu}>Contact me</a></li>
+                    <li><a href="#about" onClick={closeMenu}>Sobre mí</a></li>
+                    <li><a href="#services" onClick={closeMenu}>Servicios</a></li>
+                    <li><a href="#work" onClick={closeMenu}>Mi trabajo</a></li>
+                    <li><a href="#contact" onClick={closeMenu}>Contacto</a></li>
                 </ul>
             </nav>
         </>
