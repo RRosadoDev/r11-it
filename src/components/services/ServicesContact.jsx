@@ -86,7 +86,7 @@ const ServicesContact = () => {
             </div>
 
             <div className="max-w-3xl mx-auto bg-[#111] p-8 rounded-lg border border-gray-800 shadow-lg shadow-cyan-900/10">
-                <form onSubmit={onSubmit} className="space-y-2">
+                <form onSubmit={onSubmit} className="space-y-2 mb-2">
                     <input type="hidden" name="subject" value="Nuevo mensaje - Formulario Servicios R11" />
 
                     <div className="grid md:grid-cols-2 gap-6">

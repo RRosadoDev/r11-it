@@ -33,13 +33,25 @@ const MainEntry = () => {
                 }
             `}</style>
 
-            <div className="grid-background min-h-screen">
+            <div className="grid-background h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
                 <ServicesNavbar />
-                <ServicesHero />
-                <PainPoints />
-                <ServicesGrid />
-                <ServicesContact />
-                <ServicesFooter />
+
+                <section className="snap-start min-h-screen">
+                    <ServicesHero />
+                </section>
+
+                <section className="snap-start min-h-screen flex items-center justify-center">
+                    <PainPoints />
+                </section>
+
+                <section className="snap-start min-h-screen py-20" id="services">
+                    <ServicesGrid />
+                </section>
+
+                <section className="snap-start min-h-screen flex flex-col justify-center" id="contact">
+                    <ServicesContact />
+                    <ServicesFooter />
+                </section>
             </div>
         </div>
     );
