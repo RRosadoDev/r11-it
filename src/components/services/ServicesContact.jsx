@@ -15,21 +15,33 @@ const ServicesContact = () => {
         setResult("Enviando...");
         const formData = new FormData(event.target);
 
-        // ----- Enter your Web3 Forms Access key below---------
-        formData.append("access_key", "50b2fe65-b00b-4b9e-ad62-3ba471098be2");
+        // Accediendo a la variable de entorno
+        const apiKey = process.env.NEXT_PUBLIC_ACCESS_KEY_WEB3FORMS;
 
-        const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        }).then((res) => res.json());
+        if (!apiKey) {
+            console.error("Error: La Access Key no está configurada.");
+            setResult("Error de configuración en el servidor.");
+            return;
+        }
 
-        if (res.success) {
-            console.log("Success", res);
-            setResult("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.");
-            event.target.reset();
-        } else {
-            console.log("Error", res);
-            setResult("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+        formData.append("access_key", apiKey);
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            }).then((res) => res.json());
+
+            if (res.success) {
+                console.log("Success", res);
+                setResult("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.");
+                event.target.reset();
+            } else {
+                console.log("Error", res);
+                setResult("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
+            }
+        } catch (error) {
+            setResult("Error de conexión. Inténtalo más tarde.");
         }
     };
 
@@ -81,7 +93,7 @@ const ServicesContact = () => {
                 <h2 className="text-4xl font-bold text-white mb-4">Contacto</h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                     ¿Tienes algún proyecto en mente o necesitas soporte técnico?
-                    Escribe y te responderé a la brevedad.
+                    Escribe y te ayudaré.
                 </p>
             </div>
 
