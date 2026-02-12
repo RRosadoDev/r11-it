@@ -52,9 +52,11 @@ const ServicesHero = () => {
                     R11: Soluciones en <span className="text-green-400">{text}</span><span className="animate-pulse ">|</span>
                 </pre>
             </div>
-            <button className="mt-10 px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 z-10 hover:shadow-cyan-500/20">
+            <a 
+                href='#contact'
+                className="mt-10 px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 z-10 hover:shadow-cyan-500/20">
                 AGENDA UNA ASESORÍA GRATUITA
-            </button>
+            </a>
         </header>
     );
 };
