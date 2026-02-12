@@ -40,7 +40,7 @@ const MainEntry = () => {
                     <ServicesHero />
                 </section>
 
-                <section className="snap-start min-h-screen flex items-center justify-center">
+                <section className="snap-start min-h-screen flex items-center justify-center" id="pain-points">
                     <PainPoints />
                 </section>
 
