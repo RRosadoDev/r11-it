@@ -8,9 +8,10 @@ const ServicesHero = () => {
     const [charIndex, setCharIndex] = useState(0);
 
     const phrases = [
+        "desarrollo de software a medida",
         "mantenimiento de equipos",
-        "instalación de programas",
-        "desarrollo de software a medida"
+        "instalación y configuración de programas",
+        "instalación de redes"
     ];
 
     useEffect(() => {
