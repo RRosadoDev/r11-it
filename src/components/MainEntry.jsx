@@ -44,7 +44,7 @@ const MainEntry = () => {
                     <PainPoints />
                 </section>
 
-                <section className="snap-start min-h-screen py-20" id="services">
+                <section className="snap-start h-screen overflow-hidden" id="services">
                     <ServicesGrid />
                 </section>
 
