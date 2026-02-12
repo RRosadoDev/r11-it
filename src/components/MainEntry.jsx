@@ -5,6 +5,7 @@ import ServicesHero from './services/ServicesHero';
 import PainPoints from './services/PainPoints';
 import ServicesGrid from './services/ServicesGrid';
 import ServicesFooter from './services/ServicesFooter';
+import ServicesContact from './services/ServicesContact';
 
 const MainEntry = () => {
     return (
@@ -37,6 +38,7 @@ const MainEntry = () => {
                 <ServicesHero />
                 <PainPoints />
                 <ServicesGrid />
+                <ServicesContact />
                 <ServicesFooter />
             </div>
         </div>

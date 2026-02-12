@@ -28,7 +28,7 @@ const ServicesNavbar = () => {
 
     const menuItems = [
         { label: 'Servicios', href: '#services' },
-        // { label: 'Contacto', href: '#contacto' },
+        { label: 'Contacto', href: '#contact' },
         { label: 'Portfolio', href: '/portfolio' },
     ];
 
