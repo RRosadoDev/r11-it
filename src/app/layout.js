@@ -13,6 +13,7 @@ const ovo = Ovo({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://it.r11.online'),
   title: 'R11 | Soluciones IT & Desarrollo a Medida',
   description: 'Expertos en desarrollo web con Laravel/Vue/React/MySQL/SQL Server, mantenimiento proactivo de hardware e infraestructura de redes seguras. Optimizamos tu tecnología.',
   keywords: 'desarrollo web, mantenimiento preventivo, instalación de redes, Laravel, Vue, React, MySQL, SQL Server, soporte técnico IT, R11 online',
