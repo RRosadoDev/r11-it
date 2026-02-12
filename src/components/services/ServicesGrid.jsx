@@ -6,7 +6,7 @@ const ServicesGrid = () => {
         {
             title: "Desarrollo a Medida",
             description: "Creación de aplicaciones web, herramientas y soluciones personalizadas para tus desafíos.",
-            keywords: "desarrollo web, laravel, vue, mysql, mysql, nextjs, react, software personalizado",
+            keywords: "desarrollo web, laravel, vue, mysql, sql server, nextjs, react, software personalizado",
             icon: (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
