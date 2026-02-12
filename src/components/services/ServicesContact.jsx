@@ -19,7 +19,6 @@ const ServicesContact = () => {
         const apiKey = process.env.NEXT_PUBLIC_ACCESS_KEY_WEB3FORMS;
 
         if (!apiKey) {
-            console.error("Error: La Access Key no está configurada.");
             setResult("Error de configuración en el servidor.");
             return;
         }
@@ -33,11 +32,9 @@ const ServicesContact = () => {
             }).then((res) => res.json());
 
             if (res.success) {
-                console.log("Success", res);
                 setResult("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.");
                 event.target.reset();
             } else {
-                console.log("Error", res);
                 setResult("Hubo un error al enviar el mensaje. Por favor intenta de nuevo.");
             }
         } catch (error) {
