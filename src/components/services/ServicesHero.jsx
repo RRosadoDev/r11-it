@@ -8,10 +8,11 @@ const ServicesHero = () => {
     const [charIndex, setCharIndex] = useState(0);
 
     const phrases = [
-        "desarrollo de software a medida",
-        "mantenimiento de equipos",
-        "instalación y configuración de programas",
-        "instalación de redes"
+        "desarrollo de software escalable",
+        "optimización proactiva de hardware",
+        "infraestructura de redes seguras",
+        "automatización de procesos it",
+        "soluciones tecnológicas a medida"
     ];
 
     useEffect(() => {
@@ -48,14 +49,19 @@ const ServicesHero = () => {
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span className="ml-auto mono-font text-gray-500">R11 Terminal</span>
                 </div>
-                <pre className="text-left mono-font text-cyan-400 text-lg whitespace-pre-wrap">
-                    R11: Soluciones en <span className="text-green-400">{text}</span><span className="animate-pulse ">|</span>
+                <pre className="text-left mono-font text-lg whitespace-pre-wrap leading-relaxed">
+                    <span className="text-gray-500">system@r11:~$</span> <span className="text-cyan-400">exec --priority</span>
+                    <br />
+                    <span className="text-white">R11: Protocolo de </span>
+                    <span className="text-green-400 font-bold">{text}</span>
+                    <span className="animate-pulse text-green-400">_</span>
                 </pre>
             </div>
             <a 
                 href='#contact'
-                className="mt-10 px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 z-10 hover:shadow-cyan-500/20">
-                AGENDA UNA ASESORÍA GRATUITA
+                className="mt-10 px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 z-10 hover:shadow-cyan-500/20"
+            >
+                INICIAR CONSULTORÍA
             </a>
         </header>
     );
