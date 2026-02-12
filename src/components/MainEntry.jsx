@@ -33,7 +33,7 @@ const MainEntry = () => {
                 }
             `}</style>
 
-            <div className="grid-background h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+            <div id="main-scroll-container" className="grid-background h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
                 <ServicesNavbar />
 
                 <section className="snap-start min-h-screen" id='hero'>

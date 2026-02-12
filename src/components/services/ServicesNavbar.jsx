@@ -13,6 +13,14 @@ const ServicesNavbar = () => {
         setIsOpen(false);
     }
 
+    const handleLogoClick = (e) => {
+        e.preventDefault();
+        const scrollContainer = document.getElementById('main-scroll-container');
+        if (scrollContainer) {
+            scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -42,7 +50,7 @@ const ServicesNavbar = () => {
             >
                 <div className="flex justify-between items-center max-w-7xl mx-auto px-6 relative">
                     <div className="z-50">
-                        <a href="#hero">
+                        <a href="#" onClick={handleLogoClick}>
                             <img src="/assets/logo_dark.png" alt="R11 Logo" className="h-8 md:h-12 w-auto object-contain cursor-pointer" />
                         </a>
                     </div>
