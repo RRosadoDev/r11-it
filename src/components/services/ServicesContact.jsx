@@ -77,7 +77,7 @@ const ServicesContact = () => {
 
     return (
         <section id="contact" className="max-w-7xl mx-auto py-20 px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-2">
                 <h2 className="text-4xl font-bold text-white mb-4">Contacto</h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
                     ¿Tienes algún proyecto en mente o necesitas soporte técnico?
