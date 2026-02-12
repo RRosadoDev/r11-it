@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const ServicesNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +52,14 @@ const ServicesNavbar = () => {
                 <div className="flex justify-between items-center max-w-7xl mx-auto px-6 relative">
                     <div className="z-50">
                         <a href="#" onClick={handleLogoClick}>
-                            <img src="/assets/logo_dark.png" alt="R11 Logo" className="h-8 md:h-12 w-auto object-contain cursor-pointer" />
+                            <Image
+                                src="/assets/logo_dark.png"
+                                alt="R11 Logo"
+                                width={120}
+                                height={48}
+                                className="h-8 md:h-12 w-auto object-contain cursor-pointer"
+                                priority
+                            />
                         </a>
                     </div>
 
