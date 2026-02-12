@@ -135,7 +135,6 @@ const ServicesGrid = () => {
         }
     }
 
-
     const getCardStyle = (index) => {
         const total = services.length;
         // Calculate shortest distance in circular array
@@ -188,14 +187,14 @@ const ServicesGrid = () => {
                             onClick={() => setActiveIndex(index)}
                         >
                             <div className="bg-[#0f1115] border border-gray-800 rounded-2xl p-8 text-center h-full flex flex-col items-center justify-center shadow-2xl shadow-cyan-900/20 card-glow">
-                                <div className="mx-auto mb-8 w-24 h-24 text-cyan-400 bg-cyan-900/10 rounded-full flex items-center justify-center flex-shrink-0 animate-float">
+                                <div className="mx-auto w-24 h-24 text-cyan-400 bg-cyan-900/10 rounded-full flex items-center justify-center flex-shrink-0 animate-float">
                                     {service.icon}
                                 </div>
-                                <h3 className="text-3xl text-white mb-6 font-bold tracking-wide">{service.title}</h3>
-                                <p className="text-gray-400 text-lg leading-relaxed">{service.description}</p>
+                                <h4 className="text-xl text-white mb-2 font-bold tracking-wide">{service.title}</h4>
+                                <p className="text-gray-400 leading-relaxed">{service.description}</p>
 
                                 {/* Decoration lines */}
-                                <div className="w-12 h-1 bg-gradient-to-r from-cyan-600 to-transparent mt-8 rounded-full"></div>
+                                <div className="w-12 h-1 bg-gradient-to-r from-cyan-600 to-transparent mt-3 rounded-full"></div>
                             </div>
                         </div>
                     )
