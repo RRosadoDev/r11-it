@@ -85,7 +85,7 @@ const ServicesContact = () => {
     }, []);
 
     return (
-        <section className="max-w-7xl mx-auto py-20 px-6">
+        <section className="w-full max-w-7xl mx-auto py-20 px-6">
             <div className="text-center mb-2">
                 <h2 className="text-4xl font-bold text-white mb-4">Contacto</h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
@@ -136,8 +136,10 @@ const ServicesContact = () => {
                     </div>
 
                     {/* Captcha Container */}
-                    <div className="flex justify-start md:justify-start transform scale-[0.77] sm:scale-100 origin-top-left mb-6">
-                        <div className="h-captcha" data-captcha="true"></div>
+                    <div className="overflow-x-hidden w-full">
+                        <div className="flex justify-start md:justify-start transform scale-[0.77] sm:scale-100 origin-top-left mb-6">
+                            <div className="h-captcha" data-captcha="true"></div>
+                        </div>
                     </div>
 
                     <button

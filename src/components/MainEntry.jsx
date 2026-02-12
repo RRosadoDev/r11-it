@@ -9,7 +9,7 @@ import ServicesContact from '@/components/services/ServicesContact';
 
 const MainEntry = () => {
     return (
-        <div className="min-h-screen bg-[#0d0d0d] text-[#e0e0e0] font-sans selection:bg-cyan-500 selection:text-white">
+        <div className="min-h-screen bg-[#0d0d0d] text-[#e0e0e0] font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden">
             <style jsx global>{`
                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap');
                 
@@ -33,7 +33,7 @@ const MainEntry = () => {
                 }
             `}</style>
 
-            <div id="main-scroll-container" className="grid-background h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+            <div id="main-scroll-container" className="grid-background h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth">
                 <ServicesNavbar />
 
                 <section className="snap-start min-h-screen" id='hero'>

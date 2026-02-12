@@ -36,8 +36,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body className="font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
+        <html lang="en" className="overflow-x-hidden">
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            </head>
+            <body className="font-Outfit leading-8 dark:bg-darkTheme dark:text-white overflow-x-hidden">
                 {children}
             </body>
         </html>
