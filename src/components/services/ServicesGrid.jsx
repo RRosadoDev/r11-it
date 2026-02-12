@@ -4,9 +4,21 @@ import React, { useState, useEffect, useRef } from 'react';
 const ServicesGrid = () => {
     const services = [
         {
-            title: "Desarrollo a Medida",
-            description: "Creación de aplicaciones web, herramientas y soluciones personalizadas para tus desafíos.",
+            title: "Desarrollo de Software a Medida",
+            shortDescription: "Transformamos tus procesos manuales en software eficiente y escalable.",
+            extendedDescription: "No te conformes con plantillas genéricas. Diseñamos arquitectura de software robusta adaptada 100% a la lógica de tu negocio. Desde sistemas de gestión (ERP/CRM) hasta aplicaciones web de alto rendimiento, garantizamos código limpio, seguro y rápido.",
             keywords: "desarrollo web, laravel, vue, mysql, sql server, nextjs, react, software personalizado",
+            technologies: [
+                { name: "Laravel/PHP", icon: "backend" },
+                { name: "Next.js / React / Vue", icon: "frontend" },
+                { name: "SQL Server / MySQL", icon: "database" },
+                { name: "APIs RESTful", icon: "api" }
+            ],
+            benefits: [
+                "Automatización de tareas repetitivas.",
+                "Centralización de datos de tu empresa.",
+                "Interfaces intuitivas (UX/UI) fáciles de usar."
+            ],
             icon: (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +36,21 @@ const ServicesGrid = () => {
             )
         },
         {
-            title: "Mantenimiento Proactivo",
-            description: "Limpieza, optimización y reparación de hardware para una operación sin interrupciones.",
+            title: "Mantenimiento de Hardware Proactivo",
+            shortDescription: "Evita fallos críticos y extiende la vida útil de tus equipos informáticos.",
+            extendedDescription: "Servicio integral de mantenimiento preventivo y correctivo para equipos de cómputo. Incluye limpieza profunda de componentes, actualización de drivers, optimización de rendimiento, diagnóstico de fallas, reemplazo de piezas defectuosas y monitoreo continuo. Evita tiempos de inactividad costosos y extiende la vida útil de tu infraestructura tecnológica con planes de mantenimiento programado.",
             keywords: "soporte técnico, mantenimiento pc, hardware, reparación",
+            technologies: [
+                { name: "Cambio de Componentes", icon: "chip" },
+                { name: "Optimización Térmica", icon: "fan" },
+                { name: "Upgrades (SSD/RAM)", icon: "speed" },
+                { name: "Limpieza Profunda", icon: "clean" }
+            ],
+            benefits: [
+                "Computadoras más rápidas y silenciosas.",
+                "Ahorro de dinero al evitar la compra de equipos nuevos.",
+                "Reducción de riesgos de pérdida de datos por calor."
+            ],
             icon: (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -43,9 +67,21 @@ const ServicesGrid = () => {
             )
         },
         {
-            title: "Software y Setup",
-            description: "Instalación de sistemas operativos y configuración de programas críticos.",
+            title: "Setup y Configuración de Software",
+            shortDescription: "Instalación de sistemas operativos y configuración de programas críticos.",
+            extendedDescription: "Instalación y configuración profesional de sistemas operativos (Windows), software empresarial, herramientas de productividad y aplicaciones especializadas. Incluye optimización del sistema, configuración de seguridad, instalación de drivers, migración de datos, configuración de usuarios y permisos, y capacitación básica. Garantizamos un entorno de trabajo estable y optimizado desde el primer día.",
             keywords: "configuración windows, linux, instalación software, it setup",
+            technologies: [
+                { name: "Windows 10/11", icon: "windows" },
+                { name: "Linux Desktop", icon: "linux" },
+                { name: "Office & Adobe Suite", icon: "apps" },
+                { name: "Drivers Certificados", icon: "driver" }
+            ],
+            benefits: [
+                "Arranque del sistema en segundos, no minutos.",
+                "Eliminación de virus y publicidad molesta.",
+                "Estabilidad garantizada para software profesional."
+            ],
             icon: (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -63,9 +99,21 @@ const ServicesGrid = () => {
             )
         },
         {
-            title: "Infraestructura y Redes",
-            description: "Redes LAN seguras y de alta velocidad para máxima conectividad.",
+            title: "Infraestructura de Redes y Seguridad",
+            shortDescription: "Conectividad estable y segura para que tu negocio nunca se detenga.",
+            extendedDescription: "Diseño, instalación y configuración de infraestructura de red empresarial. Incluye cableado estructurado, instalación de switches y routers, configuración de VLANs, implementación de redes WiFi de alta densidad, configuración de VPN para acceso remoto seguro, monitoreo de red y documentación completa. Garantizamos conectividad estable, segura y escalable para tu organización.",
             keywords: "instalación redes, wifi, infraestructura it, cableado estructurado",
+            technologies: [
+                { name: "Cableado Estructurado", icon: "cable" },
+                { name: "Wi-Fi / Access Points", icon: "wifi" },
+                { name: "Configuración de Routers", icon: "router" },
+                { name: "Instalación de Gabinetes", icon: "gabinet" }
+            ],
+            benefits: [
+                "Navegación fluida sin cortes ni lag.",
+                "Seguridad contra intrusos en tu red.",
+                "Conexión remota segura para teletrabajo."
+            ],
             icon: (
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +135,7 @@ const ServicesGrid = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
+    const [flippedCards, setFlippedCards] = useState({});
     const containerRef = useRef(null);
 
     // Auto-advance loop? Maybe nice, but let's stick to user interaction first, or slow auto
@@ -98,6 +147,11 @@ const ServicesGrid = () => {
         }, 5000);
         return () => clearInterval(interval);
     }, [isDragging, services.length]);
+
+    // Reset flipped cards when active index changes
+    useEffect(() => {
+        setFlippedCards({});
+    }, [activeIndex]);
 
 
     const handleTouchStart = (e) => {
@@ -183,27 +237,111 @@ const ServicesGrid = () => {
             >
                 {services.map((service, index) => {
                     const style = getCardStyle(index);
+                    const isFlipped = flippedCards[index] || false;
+                    const isActive = index === activeIndex;
+
                     return (
                         <div
                             key={index}
-                            className="absolute w-[80%] md:w-[40%] h-full top-0 p-4 cursor-pointer select-none"
+                            className="absolute w-[80%] md:w-[40%] h-full top-0 p-4 select-none"
                             style={style}
-                            onClick={() => setActiveIndex(index)}
                         >
-                            <div className="bg-[#0f1115] border border-gray-800 rounded-2xl p-8 text-center h-full flex flex-col items-center justify-center shadow-2xl shadow-cyan-900/20 card-glow">
-                                <div className="mx-auto w-24 h-24 text-cyan-400 bg-cyan-900/10 rounded-full flex items-center justify-center flex-shrink-0 animate-float">
-                                    {service.icon}
+                            {/* Flip Card Container */}
+                            <div
+                                className="relative w-full h-full cursor-pointer"
+                                style={{
+                                    transformStyle: 'preserve-3d',
+                                    transition: 'transform 0.6s',
+                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                                }}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (isActive) {
+                                        setFlippedCards(prev => ({
+                                            ...prev,
+                                            [index]: !prev[index]
+                                        }));
+                                    } else {
+                                        setActiveIndex(index);
+                                    }
+                                }}
+                            >
+                                {/* Front Face */}
+                                <div
+                                    className="absolute w-full h-full backface-hidden"
+                                    style={{
+                                        backfaceVisibility: 'hidden',
+                                        WebkitBackfaceVisibility: 'hidden'
+                                    }}
+                                >
+                                    <div className="bg-[#0a0e14] border-2 border-cyan-700/60 rounded-2xl p-6 md:p-8 text-center h-full flex flex-col items-center justify-center shadow-2xl shadow-cyan-900/30 card-glow">
+                                        <div className="mx-auto w-16 h-16 md:w-24 md:h-24 text-cyan-400 bg-cyan-900/10 rounded-full flex items-center justify-center flex-shrink-0 animate-float mb-4">
+                                            {service.icon}
+                                        </div>
+                                        <h4 className="text-lg md:text-xl text-white mb-2 font-bold tracking-wide">{service.title}</h4>
+                                        <p className="text-sm md:text-base text-gray-400 leading-relaxed line-clamp-3">{service.shortDescription}</p>
+
+                                        {/* Decoration lines */}
+                                        <div className="w-12 h-1 bg-gradient-to-r from-cyan-600 to-transparent mt-4 rounded-full"></div>
+
+                                        {isActive && (
+                                            <p className="text-xs text-cyan-500 mt-6 animate-pulse font-medium">
+                                                » Clic para más detalles «
+                                            </p>
+                                        )}
+
+                                        <span className="sr-only">{service.keywords}</span>
+                                    </div>
                                 </div>
-                                <h4 className="text-xl text-white mb-2 font-bold tracking-wide">{service.title}</h4>
-                                <p className="text-gray-400 leading-relaxed">{service.description}</p>
 
-                                {/* Decoration lines */}
-                                <div className="w-12 h-1 bg-gradient-to-r from-cyan-600 to-transparent mt-3 rounded-full"></div>
+                                {/* Back Face */}
+                                <div
+                                    className="absolute w-full h-full backface-hidden"
+                                    style={{
+                                        backfaceVisibility: 'hidden',
+                                        WebkitBackfaceVisibility: 'hidden',
+                                        transform: 'rotateY(180deg)'
+                                    }}
+                                >
+                                    <div className="bg-[#0a0e14] border-2 border-cyan-700/60 rounded-2xl px-4 py-3 md:p-6 h-full flex flex-col shadow-2xl shadow-cyan-900/40">
+                                        {/* Extended Description */}
+                                        <p className="text-[10px] md:text-sm text-gray-300 mb-2 md:mb-4 leading-relaxed flex-shrink-0">
+                                            {service.extendedDescription}
+                                        </p>
 
-                                {/* Texto invisible para el usuario pero legible para Google */}
-                                <span className="sr-only" style={{ display: 'none' }}>
-                                    {service.keywords}
-                                </span>
+                                        {/* Technologies - Flex Wrap instead of Scroll */}
+                                        <div className="mb-1 md:mb-4 flex-shrink-0">
+                                            <div className="flex flex-wrap gap-1 md:gap-2">
+                                                {service.technologies.map((tech, idx) => (
+                                                    <span key={idx} className="px-2 py-0 md:py-1 bg-cyan-900/20 border border-cyan-700/30 rounded-full text-[9px] md:text-xs text-cyan-400 whitespace-nowrap leading-tight">
+                                                        {tech.name}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Benefits */}
+                                        <div className="flex-1 overflow-y-auto hide-scrollbar">
+                                            <p className="text-[10px] md:text-xs text-cyan-400 font-semibold leading-none mt-1 md:mb-2">
+                                                Beneficios:
+                                            </p>
+                                            <ul className="md:space-y-1.5">
+                                                {service.benefits.map((benefit, idx) => (
+                                                    <li key={idx} className="flex items-start gap-2 text-[10px] md:text-xs text-gray-300">
+                                                        <span className="text-green-400 whitespace-nowrap leading-relaxed">✓</span>
+                                                        <span className="leading-relaxed">{benefit}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        <div className="mt-auto pt-1 md:pt-4 border-t border-cyan-900/30">
+                                            <p className="text-[8px] md:text-[10px] text-gray-500 text-center animate-pulse leading-none">
+                                                Click para volver
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )
@@ -233,6 +371,20 @@ const ServicesGrid = () => {
                     0% { transform: translateY(0px); }
                     50% { transform: translateY(-10px); }
                     100% { transform: translateY(0px); }
+                }
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+                .card-glow {
+                    transition: all 0.3s ease;
+                }
+                .card-glow:hover {
+                    box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+                    border-color: rgba(6, 182, 212, 0.8);
                 }
             `}</style>
         </div>
