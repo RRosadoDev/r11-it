@@ -36,7 +36,7 @@ const MainEntry = () => {
             <div className="grid-background h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
                 <ServicesNavbar />
 
-                <section className="snap-start min-h-screen">
+                <section className="snap-start min-h-screen" id='hero'>
                     <ServicesHero />
                 </section>
 

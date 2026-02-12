@@ -42,7 +42,9 @@ const ServicesNavbar = () => {
             >
                 <div className="flex justify-between items-center max-w-7xl mx-auto px-6 relative">
                     <div className="z-50">
-                        <img src="/assets/logo_dark.png" alt="R11 Logo" className="h-8 md:h-12 w-auto object-contain cursor-pointer" />
+                        <a href="#hero">
+                            <img src="/assets/logo_dark.png" alt="R11 Logo" className="h-8 md:h-12 w-auto object-contain cursor-pointer" />
+                        </a>
                     </div>
 
                     {/* Desktop Menu */}
