@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const PainPoints = () => {
     const [index, setIndex] = useState(0);
     const [displayText, setDisplayText] = useState(['', '']);
-  
+
     const events = [
         { id: '01', msg: "Tu hardware no sigue el ritmo de tu productividad." },
         { id: '02', msg: "Software genérico que te obliga a trabajar para él." },
@@ -17,7 +17,7 @@ const PainPoints = () => {
         let charIndex = 0;
         const txt1 = events[index].msg;
         const txt2 = events[index + 1].msg;
-        
+
         // Reiniciamos los textos visibles
         setDisplayText(['', '']);
 
@@ -30,7 +30,7 @@ const PainPoints = () => {
 
             if (charIndex >= Math.max(txt1.length, txt2.length)) {
                 clearInterval(typingInterval);
-                
+
                 // Pausa de 4 segundos para que el usuario lea, luego siguiente par
                 setTimeout(() => {
                     setIndex((prev) => (prev + 2 >= events.length ? 0 : prev + 2));
@@ -45,12 +45,15 @@ const PainPoints = () => {
         <section className="w-full min-h-[450px] md:min-h-[400px] flex items-center justify-center bg-black font-mono px-6 py-12 border-y border-gray-900">
             <div className="max-w-xl w-full">
                 <div className="mb-10">
-                    <h2 className="text-cyan-400 text-lg md:text-xl mb-2">
+                    {/* <h2 className="text-cyan-400 text-lg md:text-xl mb-2">
                         {">"} analizando_entorno_it...
                     </h2>
                     <p className="text-gray-500 text-xs md:text-sm italic">
                         Detección de irregularidades en curso:
-                    </p>
+                    </p> */}
+                    <h2 className="text-cyan-400 text-lg md:text-xl mb-2">
+                        {">"} Detección de problemas:
+                    </h2>
                 </div>
 
                 {/* Altura fija para evitar que la página "salte" mientras escribe */}
@@ -59,7 +62,7 @@ const PainPoints = () => {
                         <div key={i} className="border-l-2 border-red-600/50 pl-4 h-[60px] md:h-[45px]">
                             <p className="text-sm md:text-base text-gray-300">
                                 <span className="text-red-500 font-bold mr-2">
-                                    [!] EVENT_0{index + i + 1}:
+                                    [!] PROBLEMA_0{index + i + 1}:
                                 </span>
                                 {text}
                                 {text.length < (events[index + i]?.msg.length || 0) && (
@@ -70,7 +73,7 @@ const PainPoints = () => {
                     ))}
                 </div>
 
-                <div className="mt-12 pt-4 border-t border-gray-900 flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-600">
+                {/* <div className="mt-12 pt-4 border-t border-gray-900 flex justify-between items-center text-[10px] uppercase tracking-widest text-gray-600">
                     <span className="flex items-center gap-2">
                         <span className="w-2 h-2 bg-red-500 rounded-full animate-ping" />
                         Escaneando sistema
@@ -78,6 +81,16 @@ const PainPoints = () => {
                     <span className="text-cyan-400">
                         Iniciar Protocolo R11 {">>>"}
                     </span>
+                </div> */}
+
+                {/* BOTÓN */}
+                <div className="mt-8 md:mt-10 flex justify-center w-full">
+                    <a
+                        href='#services'
+                        className="px-10 py-4 bg-transparent border-2 border-cyan-600 hover:bg-cyan-600 text-cyan-400 hover:text-white font-mono font-bold rounded-md tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(8,145,178,0.4)] z-10 uppercase text-sm"
+                    >
+                        {">"} Solucionar
+                    </a>
                 </div>
             </div>
         </section>

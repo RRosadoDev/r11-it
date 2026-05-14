@@ -9,7 +9,7 @@ const ServicesHero = () => {
 
     const phrases = [
         "desarrollo de software escalable",
-        "optimización proactiva de hardware",
+        "optimización de hardware",
         "infraestructura de redes seguras",
         "automatización de procesos it",
         "soluciones tecnológicas a medida"
@@ -60,10 +60,10 @@ const ServicesHero = () => {
 
                 {/* CONTENIDO PRINCIPAL */}
                 <div className="text-left font-mono space-y-4">
-                    <div className="text-gray-500 text-xs md:text-sm">
+                    {/* <div className="text-gray-500 text-xs md:text-sm">
                         {">"} system.init_services_protocol() <br />
                         {">"} loading_modules... [OK]
-                    </div>
+                    </div> */}
                     
                     <pre className="text-lg md:text-2xl whitespace-pre-wrap leading-tight">
                         <span className="text-white font-light">R11: Protocolo de </span>
@@ -74,7 +74,7 @@ const ServicesHero = () => {
                 </div>
 
                 {/* LÍNEA DE ESTADO INFERIOR */}
-                <div className="mt-8 pt-4 border-t border-gray-800 flex flex-wrap justify-between gap-4 font-mono text-[10px] text-gray-600">
+                {/* <div className="mt-8 pt-4 border-t border-gray-800 flex flex-wrap justify-between gap-4 font-mono text-[10px] text-gray-600">
                     <div className="flex items-center gap-2">
                         <span className="text-cyan-500">LATENCY:</span> 14ms
                     </div>
@@ -84,7 +84,7 @@ const ServicesHero = () => {
                     <div className="flex items-center gap-2">
                         <span className="text-cyan-500">ENCRYPTION:</span> AES-256
                     </div>
-                </div>
+                </div> */}
             </div>
 
             {/* BOTÓN */}
