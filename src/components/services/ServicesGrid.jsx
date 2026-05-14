@@ -138,15 +138,17 @@ const ServicesGrid = () => {
     const [flippedCards, setFlippedCards] = useState({});
     const containerRef = useRef(null);
 
-    // Auto-advance loop? Maybe nice, but let's stick to user interaction first, or slow auto
+    const isAnyFlipped = Object.values(flippedCards).some(v => v);
+
+    // Auto-advance loop: pause if dragging or any card is flipped
     useEffect(() => {
         const interval = setInterval(() => {
-            if (!isDragging) {
+            if (!isDragging && !isAnyFlipped) {
                 setActiveIndex((prev) => (prev + 1) % services.length);
             }
         }, 5000);
         return () => clearInterval(interval);
-    }, [isDragging, services.length]);
+    }, [isDragging, isAnyFlipped, services.length]);
 
     // Reset flipped cards when active index changes
     useEffect(() => {
@@ -303,13 +305,16 @@ const ServicesGrid = () => {
                                         transform: 'rotateY(180deg)'
                                     }}
                                 >
-                                    <div className="bg-[#0a0e14] border-2 border-cyan-700/60 rounded-2xl px-4 py-3 md:p-6 h-full flex flex-col shadow-2xl shadow-cyan-900/40">
-                                        {/* Extended Description */}
-                                        <p className="text-[10px] md:text-sm text-gray-300 mb-2 md:mb-4 leading-relaxed flex-shrink-0">
-                                            {service.extendedDescription}
-                                        </p>
+                                    <div className="bg-[#0a0e14] border-2 border-cyan-700/60 rounded-2xl px-4 py-3 md:p-8 h-full flex flex-col shadow-2xl shadow-cyan-900/40">
+                                        {/* Extended Description - Now taking full height with responsive font */}
+                                        <div className="flex-1 flex items-center justify-center overflow-y-auto hide-scrollbar">
+                                            <p className="text-[11px] sm:text-xs md:text-base text-gray-300 leading-relaxed text-center">
+                                                {service.extendedDescription}
+                                            </p>
+                                        </div>
 
-                                        {/* Technologies - Flex Wrap instead of Scroll */}
+                                        {/* Technologies - Hidden (Commented out) */}
+                                        {/* 
                                         <div className="mb-1 md:mb-4 flex-shrink-0">
                                             <div className="flex flex-wrap gap-1 md:gap-2">
                                                 {service.technologies.map((tech, idx) => (
@@ -319,8 +324,10 @@ const ServicesGrid = () => {
                                                 ))}
                                             </div>
                                         </div>
+                                        */}
 
-                                        {/* Benefits */}
+                                        {/* Benefits - Hidden (Commented out) */}
+                                        {/* 
                                         <div className="flex-1 overflow-y-auto hide-scrollbar">
                                             <p className="text-[10px] md:text-xs text-cyan-400 font-semibold leading-none mt-1 md:mb-2">
                                                 Beneficios:
@@ -334,9 +341,10 @@ const ServicesGrid = () => {
                                                 ))}
                                             </ul>
                                         </div>
+                                        */}
 
-                                        <div className="mt-auto pt-1 md:pt-4 border-t border-cyan-900/30">
-                                            <p className="text-[8px] md:text-[10px] text-gray-500 text-center animate-pulse leading-none">
+                                        <div className="mt-4 pt-4 border-t border-cyan-900/30 flex-shrink-0">
+                                            <p className="text-[10px] md:text-xs text-gray-500 text-center animate-pulse leading-none font-medium">
                                                 Click para volver
                                             </p>
                                         </div>
