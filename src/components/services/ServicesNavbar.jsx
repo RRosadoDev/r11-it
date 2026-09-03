@@ -37,7 +37,7 @@ const ServicesNavbar = () => {
 
     const menuItems = [
         { label: 'Servicios', href: '#services' },
-        { label: 'Contacto', href: '#contact' },
+        { label: 'Contacto', href: '#contact' }, 
     ];
 
     return (
