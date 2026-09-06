@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
-import ServicesNavbar from '@/components/services/ServicesNavbar';
-import ServicesHero from '@/components/services/ServicesHero';
-import PainPoints from '@/components/services/PainPoints';
-import ServicesGrid from '@/components/services/ServicesGrid';
-import ServicesFooter from '@/components/services/ServicesFooter';
-import ServicesContact from '@/components/services/ServicesContact';
+import ServicesNavbar from '@/components/legacy/services/ServicesNavbar';
+import ServicesHero from '@/components/legacy/services/ServicesHero';
+import PainPoints from '@/components/legacy/services/PainPoints';
+import ServicesGrid from '@/components/legacy/services/ServicesGrid';
+import ServicesFooter from '@/components/legacy/services/ServicesFooter';
+import ServicesContact from '@/components/legacy/services/ServicesContact';
 
 const MainEntry = () => {
     return (

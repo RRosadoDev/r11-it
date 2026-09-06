@@ -5,7 +5,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'r11.online',
+                hostname: 'r11-dev.com',
             },
         ],
     },

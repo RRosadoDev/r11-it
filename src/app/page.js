@@ -1,40 +1,56 @@
-import MainEntry from "@/components/MainEntry";
+import HomePage from "@/components/home/HomePage";
 
-// 1. Exportamos los metadatos para SEO básico y Redes Sociales
 export const metadata = {
-  title: 'R11 | Soluciones IT & Desarrollo a Medida',
-  description: 'Desarrollo web con React/Next.js, mantenimiento de hardware e instalación de redes seguras. Optimizamos tu infraestructura tecnológica.',
-  keywords: 'desarrollo web, mantenimiento preventivo, instalación de redes, Next.js, soporte técnico IT, R11',
+  title: 'R11 | Soporte TI y Software a Medida para tu Negocio',
+  description: 'Soporte de TI y desarrollo de software a medida para pequeñas y medianas empresas. Atendemos tus computadoras, internet, sistemas de ventas, inventarios y citas.',
+  keywords: 'soporte técnico para empresas, soporte TI para PYMEs, mantenimiento de computadoras, soporte informático, desarrollo de software a medida, sistema de inventarios, sistema POS, software para restaurantes, software para ferreterías, sistema para clínicas, automatización de procesos, R11',
 };
 
 export default function Page() {
-    // Definimos el JSON-LD de forma limpia
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "IT Consulting & Software Development",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "R11",
-            "url": "https://it.r11.online",
-            "image": "https://it.r11.online/assets/logo.png"
-        },
-        "areaServed": "Global",
+        "@type": "ProfessionalService",
+        "name": "R11",
+        "description": "Servicios de TI y desarrollo de software a medida para pequeñas y medianas empresas.",
+        "url": "https://it.r11-dev.com",
+        "image": "https://it.r11-dev.com/assets/logo.png",
+        "areaServed": "PE",
+        "priceRange": "$$",
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Servicios IT",
+            "name": "Servicios",
             "itemListElement": [
                 {
                     "@type": "Offer",
-                    "itemOffered": { "@type": "Service", "name": "Desarrollo de Software a Medida" }
+                    "itemOffered": { "@type": "Service", "name": "Soporte de TI para empresas" }
                 },
                 {
                     "@type": "Offer",
-                    "itemOffered": { "@type": "Service", "name": "Mantenimiento Proactivo de Hardware" }
+                    "itemOffered": { "@type": "Service", "name": "Mantenimiento de computadoras" }
                 },
                 {
                     "@type": "Offer",
-                    "itemOffered": { "@type": "Service", "name": "Instalación de Redes y VPN" }
+                    "itemOffered": { "@type": "Service", "name": "Instalación y configuración de redes WiFi" }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": { "@type": "Service", "name": "Desarrollo de software a medida" }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": { "@type": "Service", "name": "Sistemas de gestión e inventarios" }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": { "@type": "Service", "name": "Punto de venta (POS)" }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": { "@type": "Service", "name": "Sistemas de citas y reservas" }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": { "@type": "Service", "name": "Automatización de procesos" }
                 }
             ]
         }
@@ -42,13 +58,11 @@ export default function Page() {
 
     return (
         <>
-            {/* 2. El script de datos estructurados para Google */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            
-            <MainEntry />
+            <HomePage />
         </>
     );
 };
