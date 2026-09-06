@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-background: #FFFFFF;
+    --color-background-soft: #F8FAFC;
+    --color-background-muted: #F1F5F9;
+    --color-primary: #0F172A;
+    --color-primary-blue: #1E40AF;
+    --color-primary-light: #EFF6FF;
+    --color-success: #10B981;
+    --color-whatsapp: #25D366;
+    --color-success-light: #ECFDF5;
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #334155;
+    --color-text-muted: #64748B;
+    --color-border: #E2E8F0;
+    --color-border-light: #F1F5F9;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --container: 1180px;
+    --shadow-sm: 0 4px 16px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+}
+
+body {
+    background-color: var(--color-background);
+}
+
+::selection {
+    background: rgba(30, 64, 175, 0.15);
+    color: var(--color-primary);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary-blue);
+    outline-offset: 2px;
+}
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 @keyframes scan {
   0% { transform: translateY(-100px); opacity: 0; }
   50% { opacity: 0.5; }
